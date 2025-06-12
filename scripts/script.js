@@ -9,6 +9,6 @@ window.addEventListener('resize', () => {
 });
 
 document.querySelector('.texto-bienvenida').addEventListener('click', function() {
-    window.location.href = '../pages/inicio.html'; // Cambia la URL por la que desees
+    window.location.href = './pages/inicio.html'; // Cambia la URL por la que desees
 });
 
