@@ -1,0 +1,82 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* Fondo animado degradado con colores Web3 y efecto glassmorphism */
+    background: linear-gradient(135deg, #0f2027 0%, #2c5364 30%, #00c6ff 60%, #ff00c8 90%, #fff700 100%);
+    background-size: 400% 400%;
+    animation: fondoWeb3 18s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes fondoWeb3 {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 100%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 0%; }
+    100% { background-position: 0% 50%; }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 30%, #00ffea55 0%, transparent 60%),
+        radial-gradient(circle at 80% 70%, #ff00c855 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, #fff70033 0%, transparent 70%),
+        repeating-linear-gradient(120deg, #ffffff11 0 2px, transparent 2px 40px);
+    z-index: 0;
+    mix-blend-mode: lighten;
+    filter: blur(3px) brightness(1.08);
+    opacity: 0.85;
+    transition: opacity 0.5s;
+}
+
+/* Efecto glassmorphism para elementos principales */
+.texto-bienvenida {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    z-index: 1;
+    animation: textoAnimado 2s ease-in-out infinite alternate;
+    background: rgba(30, 30, 60, 0.35);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 #1f26875e;
+    backdrop-filter: blur(6px);
+    padding: 1em 2em;
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: 
+        box-shadow 0.4s cubic-bezier(.4,2,.6,1), 
+        background 0.4s cubic-bezier(.4,2,.6,1),
+        transform 0.3s cubic-bezier(.4,2,.6,1);
+}
+
+.texto-bienvenida:hover {
+    background: rgba(0, 198, 255, 0.25);
+    box-shadow: 0 0 32px 8px #2c5364, 0 8px 32px 0 #ff00c8;
+    transform: translate(-50%, -50%) scale(1.13) rotate(-2deg);
+    cursor: pointer;
+}
+/* animación de bienvenida */
+@keyframes textoAnimado {
+    0% {
+        letter-spacing: 0.05em;
+        text-shadow: 0 0 10px #00fff7, 0 0 20px #ff00c8;
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        letter-spacing: 0.2em;
+        text-shadow: 0 0 30px #fff700, 0 0 60px #00fff7;
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+}
